@@ -17,6 +17,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-	{import = "user.nvim-tree"}
+	{import = "user.nvim-tree"},
+	{import = "user.lualine"},
+	{import = "user.lsp"}
 })
 
