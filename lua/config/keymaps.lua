@@ -10,6 +10,12 @@ vim.g.mapleader = " "
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
+-- Better window movement
+keymap("n", "<leader>h", "<C-w>h", opts)
+keymap("n", "<leader>l", "<C-w>l", opts)
+keymap("n", "<leader>j", "<C-w>j", opts)
+keymap("n", "<leader>k", "<C-w>k", opts)
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
