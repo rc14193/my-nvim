@@ -18,9 +18,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-	{import = "user.nvim-tree"},
-	{import = "user.lualine"},
-	{import = "user.lsp"},
 	-- NOTE: This is where your plugins related to LSP can be installed.
 	--  The configuration is done below. Search for lspconfig to find it below.
 	{
@@ -39,7 +36,26 @@ require('lazy').setup({
 	      	'folke/neodev.nvim',
 	    },
 	  },
+	    {
+    -- Autocompletion
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      -- Snippet Engine & its associated nvim-cmp source
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+
+      -- Adds LSP completion capabilities
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
+
+      -- Adds a number of user-friendly snippets
+      'rafamadriz/friendly-snippets',
+    },
+  },
+
+	{import = "user.nvim-tree"},
+	{import = "user.lualine"},
+	{import = "user.lsp"},
+	{import = "user.git"},
 })
 
-require('mason').setup()
-require('mason-lspconfig').setup()
