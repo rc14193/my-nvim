@@ -18,25 +18,25 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-	-- NOTE: This is where your plugins related to LSP can be installed.
-	--  The configuration is done below. Search for lspconfig to find it below.
-	{
-		-- LSP Configuration & Plugins
-	    	'neovim/nvim-lspconfig',
-	    dependencies = {
-		-- Automatically install LSPs to stdpath for neovim
-	      	'williamboman/mason.nvim',
-	      	'williamboman/mason-lspconfig.nvim',
+    -- NOTE: This is where your plugins related to LSP can be installed.
+    --  The configuration is done below. Search for lspconfig to find it below.
+    {
+        -- LSP Configuration & Plugins
+            'neovim/nvim-lspconfig',
+        dependencies = {
+        -- Automatically install LSPs to stdpath for neovim
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
 
-	      	-- Useful status updates for LSP
-	      	-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-	      	{ 'j-hui/fidget.nvim', opts = {} },
+            -- Useful status updates for LSP
+            -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+            { 'j-hui/fidget.nvim', opts = {} },
 
-	      	-- Additional lua configuration, makes nvim stuff amazing!
-	      	'folke/neodev.nvim',
-	    },
-	  },
-	    {
+            -- Additional lua configuration, makes nvim stuff amazing!
+            'folke/neodev.nvim',
+        },
+      },
+        {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
@@ -53,10 +53,10 @@ require('lazy').setup({
     },
   },
 
-	{import = "user.nvim-tree"},
-	{import = "user.lualine"},
-	{import = "user.lsp"},
-	{import = "user.git"},
+    {import = "user.nvim-tree"},
+    {import = "user.lualine"},
+    {import = "user.lsp"},
+    {import = "user.git"},
 })
 
 -- Decrease update time
@@ -65,4 +65,6 @@ vim.o.timeoutlen = 300
 
 vim.o.list = true
 vim.o.listchars = "tab:>-,space:·"
-
+vim.o.expandtab = true
+vim.o.sts = 4
+vim.o.sw = 4
