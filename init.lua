@@ -81,6 +81,7 @@ require('lazy').setup({
         },
         build = ':TSUpdate',
     },
+    {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
 
     { import = "user.nvim-tree" },
     { import = "user.lualine" },
@@ -151,3 +152,6 @@ cmp.setup {
         { name = 'path' },
     },
 }
+
+vim.opt.termguicolors = true
+require("bufferline").setup{}

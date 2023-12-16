@@ -75,3 +75,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+-- Navigate buffers
+keymap("n", "<leader>.", ":bnext<CR>", opts)
+keymap("n", "<leader>,", ":bprevious<CR>", opts)
