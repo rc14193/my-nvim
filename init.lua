@@ -92,7 +92,7 @@ require('lazy').setup({
 
 -- Decrease update time
 vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 3000
 
 vim.o.list = true
 vim.o.listchars = "tab:>-,space:·"
