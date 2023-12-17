@@ -82,6 +82,8 @@ require('lazy').setup({
         build = ':TSUpdate',
     },
     {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
+    {'OmniSharp/omnisharp-vim'},
+    {'akinsho/toggleterm.nvim', version = "*", config = true},
 
     { import = "user.nvim-tree" },
     { import = "user.lualine" },
@@ -89,6 +91,7 @@ require('lazy').setup({
     { import = "user.git" },
     { import = "user.telescope" },
     { import = "user.treesitter" },
+    { import = "user.toggleterm" },
 })
 
 -- Decrease update time

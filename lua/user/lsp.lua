@@ -18,15 +18,18 @@ local M = {
 require('mason').setup()
 require('mason-lspconfig').setup()
 
+local pid = vim.fn.getpid()
+local omnisharp_bin = "~/.local/share/nvim/lsp_servers/omnisharp/"
+
 local servers = {
     -- clangd = {},
     -- gopls = {},
      pyright = {},
      yamlls = {},
-     omnisharp = {},
     -- rust_analyzer = {},
     tsserver = {},
     -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+    --omnisharp = {cmd = { "mono", omnisharp_bin, "--languageserver","--hostPID", tostring(pid) },},
 
     lua_ls = {
         Lua = {
