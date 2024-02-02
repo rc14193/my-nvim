@@ -29,7 +29,7 @@ local servers = {
     -- rust_analyzer = {},
     tsserver = {},
     -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-    --omnisharp = {cmd = { "mono", omnisharp_bin, "--languageserver","--hostPID", tostring(pid) },},
+    omnisharp = {cmd = { "mono", omnisharp_bin, "--languageserver","--hostPID", tostring(pid) },},
 
     lua_ls = {
         Lua = {
