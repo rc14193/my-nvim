@@ -9,8 +9,7 @@ if not vim.loop.fs_stat(lazypath) then
     vim.fn.system {
         'git',
         'clone',
-        '--filter=blob:none',
-        'https://github.com/folke/lazy.nvim.git',
+        '--filter=blob:none', 'https://github.com/folke/lazy.nvim.git',
         '--branch=stable', -- latest stable release
         lazypath,
     }
@@ -84,6 +83,11 @@ require('lazy').setup({
     {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
     {'OmniSharp/omnisharp-vim'},
     {'akinsho/toggleterm.nvim', version = "*", config = true},
+    rtp ={
+        disabled_plugins = {
+            "matchparen",
+        },
+    },
 
     { import = "user.nvim-tree" },
     { import = "user.lualine" },
@@ -157,4 +161,6 @@ cmp.setup {
 }
 
 vim.opt.termguicolors = true
+vim.g.loaded_matchparen = true
+vim.cmd("NoMatchParen")
 require("bufferline").setup{}
