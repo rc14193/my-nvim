@@ -47,7 +47,12 @@ require('lazy').setup({
       keys = {
         { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
         { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
+		{ "<F5>", function() require("dap").continue() end, desc = "toggle breakpoint", mode = {"n"} },
+		{ "<F10>", function() require("dap").step_over() end, desc = "toggle breakpoint", mode = {"n"} },
+		{ "<F11>", function() require("dap").step_into() end, desc = "toggle breakpoint", mode = {"n"} },
+		{ "<F12>", function() require("dap").step_out() end, desc = "toggle breakpoint", mode = {"n"} },
 		{ "<leader>b", function() require("dap").toggle_breakpoint() end, desc = "toggle breakpoint", mode = {"n"} },
+		{ "<leader>dr", function() require("dap").repl.toggle() end, desc = "toggle breakpoint", mode = {"n"} },
       },
       opts = {},
       config = function(_, opts)
