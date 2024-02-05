@@ -80,3 +80,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 keymap("n", "<leader>.", ":bnext<CR>", opts)
 keymap("n", "<leader>,", ":bprevious<CR>", opts)
 keymap("n", "<leader>q", ":bd<CR>", opts)
+
