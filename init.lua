@@ -110,6 +110,20 @@ require('lazy').setup({
     -- Fuzzy Finder (files, lsp, etc)
     {
         'nvim-telescope/telescope.nvim',
+		config = {
+		  defaults = {
+			layout_config = {
+			  width = 0.8
+			  -- other layout configuration here
+			},
+		 },
+		  pickers = {
+			live_grep = {
+			  theme = "dropdown",
+			  layout_config = {width=0.8}
+			}
+		  },
+		},
         branch = '0.1.x',
         dependencies = {
             'nvim-lua/plenary.nvim',
