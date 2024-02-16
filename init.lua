@@ -35,6 +35,7 @@ require('lazy').setup({
             'folke/neodev.nvim',
         },
     },
+    { 'folke/which-key.nvim', opts = {} },
     {
 		import = "user.debugger"
     },
@@ -118,13 +119,25 @@ require('lazy').setup({
 
 -- Decrease update time
 vim.o.updatetime = 250
-vim.o.timeoutlen = 3000
+vim.o.timeoutlen = 300
 
 vim.o.list = true
 vim.o.listchars = "tab:>-,space:·"
 vim.o.expandtab = true
 vim.o.sts = 4
 vim.o.sw = 4
+
+-- document existing key chains
+require('which-key').register {
+  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
+  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
+  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+  ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
+  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
+  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+  ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+}
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
@@ -182,3 +195,38 @@ vim.opt.termguicolors = true
 vim.g.loaded_matchparen = true
 vim.cmd("NoMatchParen")
 require("bufferline").setup{}
+
+local vim = vim
+local opt = vim.opt
+
+opt.fen = true
+opt.foldmethod="expr"
+opt.foldexpr="nvim_treesitter#foldexpr()"
+
+local vim = vim
+local api = vim.api
+local M = {}
+-- function to create a list of commands and convert them to autocommands
+-------- This function is taken from https://github.com/norcalli/nvim_utils
+function M.nvim_create_augroups(definitions)
+    for group_name, definition in pairs(definitions) do
+        api.nvim_command('augroup '..group_name)
+        api.nvim_command('autocmd!')
+        for _, def in ipairs(definition) do
+            local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
+            api.nvim_command(command)
+        end
+        api.nvim_command('augroup END')
+    end
+end
+
+
+local autoCommands = {
+    -- other autocommands
+    open_folds = {
+        {"BufReadPost,FileReadPost", "*", "normal zR"}
+    }
+}
+
+M.nvim_create_augroups(autoCommands)
+

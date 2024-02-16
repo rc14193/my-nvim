@@ -14,6 +14,7 @@ local servers = {
      yamlls = {},
     -- rust_analyzer = {},
     tsserver = {},
+    jsonls = {},
     -- html = { filetypes = { 'html', 'twig', 'hbs'} },
     omnisharp = {cmd = { "mono", omnisharp_bin, "--languageserver","--hostPID", tostring(pid) },},
 
