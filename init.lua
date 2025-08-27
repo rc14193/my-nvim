@@ -61,14 +61,19 @@ require('lazy').setup({
         'nvim-telescope/telescope.nvim',
 		config = {
 		  defaults = {
+            path_display = { "truncate" },
 			layout_config = {
-			  width = 0.8
+			  width = 0.8,
 			  -- other layout configuration here
 			},
 		 },
 		  pickers = {
 			live_grep = {
 			  theme = "dropdown",
+			  layout_config = {width=0.8}
+			},
+            lsp_references = {
+              show_line = false,
 			  layout_config = {width=0.8}
 			}
 		  },
@@ -202,7 +207,7 @@ opt.fen = true
 opt.foldmethod="expr"
 opt.foldexpr="nvim_treesitter#foldexpr()"
 opt.foldlevel=1
-opt.startfoldlevel=1
+opt.foldlevelstart=1
 
 local vim = vim
 local api = vim.api
