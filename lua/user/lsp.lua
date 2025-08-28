@@ -69,9 +69,9 @@ nmap('<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end, '[W]orkspace [L]ist Folders')
 -- Create a command `:Format` local to the LSP buffer
-vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
-end, { desc = 'Format current buffer with LSP' })
+--vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+--    vim.lsp.buf.format()
+--end, { desc = 'Format current buffer with LSP' })
 nmap('fr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 vim.lsp.config('csharp-ls', {
   -- Server-specific settings. See `:help lsp-quickstart`
