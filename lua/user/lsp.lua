@@ -13,10 +13,10 @@ local servers = {
      pyright = {},
      yamlls = {},
     -- rust_analyzer = {},
-    tsserver = {},
+    -- tsserver = {},
     jsonls = {},
     -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-    omnisharp = {cmd = { "mono", omnisharp_bin, "--languageserver","--hostPID", tostring(pid) },},
+    csharp-ls = {},
 
     lua_ls = {
         Lua = {
@@ -87,14 +87,10 @@ local on_attach = function(_, bufnr)
     end, { desc = 'Format current buffer with LSP' })
 end
 
-mason_lspconfig.setup_handlers {
-    function(server_name)
-        require('lspconfig')[server_name].setup {
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = servers[server_name],
-            filetypes = (servers[server_name] or {}).filetypes,
-        }
-    end,
-}
+for key, value in pairs(servers) do
+    vim.lsp.config(key, {
+  settings = {
+    [key] = {},
+  },})
+end
 return M

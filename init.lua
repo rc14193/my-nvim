@@ -19,6 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
     -- NOTE: This is where your plugins related to LSP can be installed.
     --  The configuration is done below. Search for lspconfig to find it below.
+    { "nvim-neotest/nvim-nio" },
     {
         -- LSP Configuration & Plugins
         'neovim/nvim-lspconfig',
